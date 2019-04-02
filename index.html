@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <!-- Title -->
     <title>Giftastic</title>
-    
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
 
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 </head>
+
 <body>
 
-<div>
-    <nav class="navbar navbar-light bg-dark d-flex justify-content-end">
-        <div class="row" id="gifButtons">
+    <nav class="navbar navbar-light bg-dark">
+        <div class="row">
+            <div id="gifButtons">
 
+            </div>
         </div>
         <div class="row">
             <form class="form-inline" id="gifForm">
-                <label for="gifInput">Request any Gif</label>
-                <input type="text" class="ml-3" id="gifInput">
-                <input type="submit" class="btn btn-outline-success ml-3" value="Submit" id="addGif">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="gifInput">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="addGif" type="submit">Request any Gif</button>
             </form>
         </div>
     </nav>
-</div>
+
+    <div class="container">
+
+        <div class="row" id="gifDisplay">
+
+        </div>
+
+    </div>
 
 
 
 
     <script src="assets/logic.js"></script>
 </body>
+
 </html>
