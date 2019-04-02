@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 #gifForm {
     color: white;
 }
@@ -8,6 +12,8 @@
 
 p {
     font-weight: bold;
+    margin-bottom: 0px;
+    color: white;
 }
 
 .gif-item {

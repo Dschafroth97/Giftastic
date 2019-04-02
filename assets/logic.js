@@ -4,7 +4,7 @@ $(document).ready(function() {
     // pre-defined buttons array
     var words = [
         "dog", "cat", "hamster", "turtle", "bird", "teacup pig",
-        "bear", "salamander", "ferret", "sugar glider",
+        "bear", "salamander", "ferret", "sugar glider", "bearded dragon"
     ];
 
     // get buttons onto page
@@ -39,7 +39,6 @@ $(document).ready(function() {
 
                 for (var i=0; i < results.length; i++) {
                     var gifDiv = $("<div class=\"gif-item\">");
-                    gifDiv.addClass("card");
                 
                     var rating = results[i].rating;
 
@@ -57,7 +56,7 @@ $(document).ready(function() {
 
                     
                     gifDiv.append(gifImage);
-                    gifDiv.prepend(p);
+                    gifDiv.append(p);
 
                     $("#gifDisplay").prepend(gifDiv);
 
@@ -65,7 +64,20 @@ $(document).ready(function() {
             });
     });
 
+    $(document).on("click", ".gifImage", function() {
 
+        var state = $(this).attr("data-state");
+
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animated")
+        }
+        else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still")
+            
+        }
+    });
 
     // populate buttons from pre-defined array when page loads
     populateButtons(words, "gifButton", "#gifButtons");
