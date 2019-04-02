@@ -1,3 +1,7 @@
+html, body {
+    min-height: 100%;
+}
+
 body {
     background-color: black;
 }
@@ -8,6 +12,7 @@ body {
 
 #gifButtons {
     float: left;
+    size: 20px;
 }
 
 p {
@@ -19,4 +24,5 @@ p {
 .gif-item {
     margin: 10px 10px 10px 10px;
     padding: 5px 5px 5px 5px;
+    cursor: pointer;
 }

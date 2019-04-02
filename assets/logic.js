@@ -3,13 +3,13 @@ $(document).ready(function() {
 
     // pre-defined buttons array
     var words = [
-        "dog", "cat", "hamster", "turtle", "bird", "teacup pig",
-        "bear", "salamander", "ferret", "sugar glider", "bearded dragon"
+        "dog", "cat", "tron", "star wars", "adventure", "teacup pig",
+        "bear", "tacos", "ferret", "pizza", "bearded dragon"
     ];
 
     // get buttons onto page
     function populateButtons(arrayToUse, classToAdd, areaToAddTo) {
-        // $(areaToAddTo).empty();
+        $(areaToAddTo).empty();
 
         // for loop adding a button with appropriate attr and classes for each word in array
         for (var i=0; i < arrayToUse.length; i++) {
@@ -78,6 +78,18 @@ $(document).ready(function() {
             
         }
     });
+
+    $("#addGif").on("click", function(event) {
+        event.preventDefault();
+        var newWord = $("input").eq(0).val();
+    
+        if (newWord.length > 1) {
+          words.push(newWord);
+        }
+    
+        populateButtons(words, "gifButton", "#gifButtons");
+    
+      });
 
     // populate buttons from pre-defined array when page loads
     populateButtons(words, "gifButton", "#gifButtons");
