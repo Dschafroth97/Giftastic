@@ -1,5 +1,5 @@
 // make sure html is loaded first
-$(document).ready(function() {
+$(document).ready(function () {
 
     // pre-defined buttons array
     var words = [
@@ -12,7 +12,7 @@ $(document).ready(function() {
         $(areaToAddTo).empty();
 
         // for loop adding a button with appropriate attr and classes for each word in array
-        for (var i=0; i < arrayToUse.length; i++) {
+        for (var i = 0; i < arrayToUse.length; i++) {
             var a = $("<button>");
             a.addClass(classToAdd);
             a.addClass("btn ml-1 mb-1 btn-outline-success");
@@ -22,7 +22,7 @@ $(document).ready(function() {
         }
     };
 
-    $(document).on("click", ".gifButton", function() {
+    $(document).on("click", ".gifButton", function () {
         $(".gifButton").removeClass("active");
         $(this).addClass("active");
 
@@ -33,13 +33,13 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
         })
-            .then(function(response) {
+            .then(function (response) {
                 console.log(response);
                 var results = response.data;
 
-                for (var i=0; i < results.length; i++) {
+                for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div class=\"gif-item\">");
-                
+
                     var rating = results[i].rating;
 
                     var p = $("<p>").text("Rating: " + rating);
@@ -54,7 +54,7 @@ $(document).ready(function() {
                     gifImage.attr("data-state", "still");
                     gifImage.addClass("gifImage");
 
-                    
+
                     gifDiv.append(gifImage);
                     gifDiv.append(p);
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
             });
     });
 
-    $(document).on("click", ".gifImage", function() {
+    $(document).on("click", ".gifImage", function () {
 
         var state = $(this).attr("data-state");
 
@@ -75,21 +75,25 @@ $(document).ready(function() {
         else {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still")
-            
+
         }
     });
 
-    $("#addGif").on("click", function(event) {
+    $("#addGif").on("click", function (event) {
         event.preventDefault();
         var newWord = $("input").eq(0).val();
-    
+
         if (newWord.length > 1) {
-          words.push(newWord);
+            words.push(newWord);
         }
-    
+
         populateButtons(words, "gifButton", "#gifButtons");
-    
-      });
+
+    });
+
+    $(document).on("click", "#clearGif", function() {
+        $("#gifDisplay").empty();
+    });
 
     // populate buttons from pre-defined array when page loads
     populateButtons(words, "gifButton", "#gifButtons");
